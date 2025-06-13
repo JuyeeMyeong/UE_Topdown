@@ -16,7 +16,6 @@ public:
     virtual ~UMovementController();
 
     virtual FVector Move(const FVector& currentPos) PURE_VIRTUAL(UMovementController::Move, return FVector::ZeroVector;);
-    virtual FVector Step() PURE_VIRTUAL(UMovementController::Step, return FVector::ZeroVector;);
     virtual FVector RandomJump(const FVector& currentPos) PURE_VIRTUAL(UMovementController::RandomJump, return FVector::ZeroVector;);
 
 };

@@ -17,7 +17,6 @@ public:
     virtual ~URandomMovementController();
 
     virtual FVector Move(const FVector& currentPos) override;
-    virtual FVector Step() override;
     virtual FVector RandomJump(const FVector& currentPos) override;
 
 private:

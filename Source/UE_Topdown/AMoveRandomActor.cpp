@@ -55,8 +55,6 @@ void AMoveRandomActor::Tick(float DeltaTime)
 	{
 		ElapsedTime = 0.f;
 		Step();
-		CurrentStep++;
-		UE_LOG(LogTemp, Log, TEXT("%d Position : X=%.1f, Y=%.1f"), CurrentStep, CurrentPosition.X, CurrentPosition.Y);
 	}
 }
 
@@ -78,12 +76,15 @@ void AMoveRandomActor::Step()
 		else
 		{
 			UE_LOG(LogTemp, Log, TEXT("Event not Triggered! Normal Step"));
-			CurrentPosition = RMovementController->Move(CurrentPosition); // 랜덤한 Step 받아서 이동 
+			CurrentPosition = RMovementController->Move(CurrentPosition);
 
 		}
 
 		float DistanceMoved = FVector::Distance(PreviousPosition, CurrentPosition); // 이전 좌표와 현재 좌표 사이의 거리 계산
 		TotalDistance += DistanceMoved; // 총 이동 거리 업데이트
+		CurrentStep++;
+
+		UE_LOG(LogTemp, Log, TEXT("%d Position : X=%.1f, Y=%.1f \n Distance Moved: % f"), CurrentStep, CurrentPosition.X, CurrentPosition.Y, DistanceMoved);
 
 		SetActorLocation(CurrentPosition);
 	}
