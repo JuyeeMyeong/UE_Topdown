@@ -14,13 +14,8 @@ URandomMovementController::~URandomMovementController()
 FVector URandomMovementController::Move(const FVector& currentPos)
 {
 	// 랜덤한 step 벡터를 받아서 현재 위치에 값을 더함 
-	FVector step = Step();
+	FVector step = GenerateRandomStep(0, 1);
 	return currentPos + step;
-}
-
-FVector URandomMovementController::Step()
-{
-	return GenerateRandomStep(0, 1);
 }
 
 FVector URandomMovementController::RandomJump(const FVector& currentPos)
